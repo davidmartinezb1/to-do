@@ -27,7 +27,7 @@
                     </ul>
                 </div>
                 
-                <div class="card" v-bin:v-for="task in list">
+                <div class="card" v-for="task in list">
                     <header class="card-header">
                         <p class="card-header-title"> Milestones # {{ task.id }} </p>
                         <a href="#" class="card-header-icon" aria-label="more options"
