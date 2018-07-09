@@ -1820,16 +1820,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     directives: {
@@ -2791,235 +2781,221 @@ var render = function() {
       "div",
       { staticClass: "column is-half is-offset-one-quarter task-list" },
       [
-        _c(
-          "div",
-          { staticClass: "box" },
-          [
-            _c("h2", { staticClass: "title" }, [_vm._v("My TO-DO")]),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c("div", { staticClass: "field has-addons" }, [
-              _c("div", { staticClass: "control is-expanded" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.task.body,
-                      expression: "task.body"
+        _c("div", { staticClass: "box" }, [
+          _c("h2", { staticClass: "title" }, [_vm._v("TO-DO Milestones")]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("div", { staticClass: "field has-addons" }, [
+            _c("div", { staticClass: "control is-expanded" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.task.body,
+                    expression: "task.body"
+                  }
+                ],
+                staticClass: "input",
+                attrs: { type: "text", placeholder: "New task" },
+                domProps: { value: _vm.task.body },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ],
-                  staticClass: "input",
-                  attrs: { type: "text", placeholder: "New task" },
-                  domProps: { value: _vm.task.body },
+                    _vm.$set(_vm.task, "body", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "button is-primary",
                   on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.task, "body", $event.target.value)
+                    click: function($event) {
+                      _vm.createTask()
                     }
                   }
-                })
+                },
+                [_vm._v(" Add Task ")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tabs is-centered" }, [
+            _c("ul", [
+              _c("li", { class: { "is-active": _vm.isActive("current") } }, [
+                _c("h3", { staticClass: "title" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.fetchTaskList()
+                        }
+                      }
+                    },
+                    [_vm._v(" To do ")]
+                  )
+                ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "control" }, [
+              _c("li", { class: { "is-active": _vm.isActive("archive") } }, [
+                _c("h3", { staticClass: "title" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.fetchTaskList(1)
+                        }
+                      }
+                    },
+                    [_vm._v(" Complete ")]
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "bin",
+                  rawName: "v-bin:v-for",
+                  value: _vm.task in _vm.list,
+                  expression: "task in list",
+                  arg: "v-for"
+                }
+              ],
+              staticClass: "card"
+            },
+            [
+              _c("header", { staticClass: "card-header" }, [
+                _c("p", { staticClass: "card-header-title" }, [
+                  _vm._v(" Milestones # " + _vm._s(_vm.task.id) + " ")
+                ]),
+                _vm._v(" "),
                 _c(
                   "a",
                   {
-                    staticClass: "button is-primary",
+                    staticClass: "card-header-icon",
+                    attrs: { href: "#", "aria-label": "more options" },
                     on: {
                       click: function($event) {
-                        _vm.createTask()
+                        $event.preventDefault()
+                        _vm.archiveTask(_vm.task.id)
                       }
                     }
                   },
                   [
-                    _vm._v(
-                      "\n                        Add Task\n                    "
-                    )
+                    _c("span", { staticClass: "icon" }, [
+                      _c("i", {
+                        staticClass: "fa ",
+                        class: {
+                          "fa-square-o": !_vm.task.archive,
+                          check: !_vm.task.archive,
+                          "fa-check-square-o": _vm.task.archive,
+                          done: _vm.task.archive
+                        },
+                        attrs: { "aria-hidden": "true" }
+                      })
+                    ])
                   ]
                 )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "tabs is-centered" }, [
-              _c("ul", [
-                _c("li", { class: { "is-active": _vm.isActive("current") } }, [
-                  _c("h3", { staticClass: "title" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.fetchTaskList()
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                To do\n                            "
-                        )
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { class: { "is-active": _vm.isActive("archive") } }, [
-                  _c("h3", { staticClass: "title" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.fetchTaskList(1)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                Complete\n                            "
-                        )
-                      ]
-                    )
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.list, function(task) {
-              return _c("div", { staticClass: "card" }, [
-                _c("header", { staticClass: "card-header" }, [
-                  _c("p", { staticClass: "card-header-title" }, [
-                    _vm._v(
-                      " \n                        Milestones # " +
-                        _vm._s(task.id) +
-                        "\n                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "card-header-icon",
-                      attrs: { href: "#", "aria-label": "more options" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.archiveTask(task.id)
-                        }
-                      }
-                    },
-                    [
-                      _c("span", { staticClass: "icon" }, [
-                        _c("i", {
-                          staticClass: "fa ",
-                          class: {
-                            "fa-square-o": !task.archive,
-                            check: !task.archive,
-                            "fa-check-square-o": task.archive,
-                            done: task.archive
-                          },
-                          attrs: { "aria-hidden": "true" }
-                        })
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "content" }, [
-                    task !== _vm.editingTask
-                      ? _c(
-                          "p",
-                          {
-                            attrs: { title: _vm.message },
-                            on: {
-                              dblclick: function($event) {
-                                _vm.editTask(task)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                            " +
-                                _vm._s(task.body) +
-                                "\n                        "
-                            )
-                          ]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    task === _vm.editingTask
-                      ? _c("input", {
-                          directives: [
-                            { name: "autofocus", rawName: "v-autofocus" },
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: task.body,
-                              expression: "task.body"
-                            }
-                          ],
-                          staticClass: "input",
-                          attrs: { type: "text", placeholder: "New task" },
-                          domProps: { value: task.body },
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-content" }, [
+                _c("div", { staticClass: "content" }, [
+                  _vm.task !== _vm.editingTask
+                    ? _c(
+                        "p",
+                        {
+                          attrs: { title: _vm.message },
                           on: {
-                            keyup: function($event) {
-                              if (
-                                !("button" in $event) &&
-                                _vm._k(
-                                  $event.keyCode,
-                                  "enter",
-                                  13,
-                                  $event.key,
-                                  "Enter"
-                                )
-                              ) {
-                                return null
-                              }
-                              _vm.endEditing(task)
-                            },
-                            blur: function($event) {
-                              _vm.endEditing(task)
-                            },
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(task, "body", $event.target.value)
+                            dblclick: function($event) {
+                              _vm.editTask(_vm.task)
                             }
                           }
-                        })
-                      : _vm._e()
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("footer", { staticClass: "card-footer" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "card-footer-item",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.deleteTask(task.id)
+                        },
+                        [_vm._v(" " + _vm._s(_vm.task.body) + " ")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.task === _vm.editingTask
+                    ? _c("input", {
+                        directives: [
+                          { name: "autofocus", rawName: "v-autofocus" },
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.task.body,
+                            expression: "task.body"
+                          }
+                        ],
+                        staticClass: "input",
+                        attrs: { type: "text", placeholder: "New task" },
+                        domProps: { value: _vm.task.body },
+                        on: {
+                          keyup: function($event) {
+                            if (
+                              !("button" in $event) &&
+                              _vm._k(
+                                $event.keyCode,
+                                "enter",
+                                13,
+                                $event.key,
+                                "Enter"
+                              )
+                            ) {
+                              return null
+                            }
+                            _vm.endEditing(_vm.task)
+                          },
+                          blur: function($event) {
+                            _vm.endEditing(_vm.task)
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.task, "body", $event.target.value)
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("Delete")]
-                  )
+                      })
+                    : _vm._e()
                 ])
+              ]),
+              _vm._v(" "),
+              _c("footer", { staticClass: "card-footer" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "card-footer-item",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.deleteTask(_vm.task.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
               ])
-            })
-          ],
-          2
-        )
+            ]
+          )
+        ])
       ]
     )
   ])
