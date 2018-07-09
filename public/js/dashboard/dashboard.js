@@ -84,17 +84,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Vue.component('task-list', __webpack_require__(39));
 
 var app = new Vue({
-		el: '#app'
-});
-
-var date_picker = new Vue({
-		el: '#date_picker',
-		components: {
-				Datepicker: __WEBPACK_IMPORTED_MODULE_0_vuejs_datepicker__["a" /* default */]
-		},
-		data: {
-				date: new Date()
-		}
+    el: '#app'
 });
 
 /***/ }),
@@ -1592,7 +1582,7 @@ var Datepicker = {render: function(){var _vm=this;var _h=_vm.$createElement;var 
 // eslint-disable-next-line
 ;
 
-/* harmony default export */ __webpack_exports__["a"] = (Datepicker);
+/* unused harmony default export */ var _unused_webpack_default_export = (Datepicker);
 
 
 /***/ }),

@@ -9,7 +9,7 @@
 			<div class="navbar-brand">
 					
 				<a class="navbar-item" href="{{ url('/test') }}">
-							<img src="{!! asset('image/laravel-development.jpg') !!}" alt="application" width="112" height="28">
+							<img src="{!! asset('image/laravel-development.jpg') !!}" alt="application" width="100" height="128">
 					</a>
 					
 					<div class="navbar-item is-hidden-desktop">
@@ -21,17 +21,6 @@
 											<span>Date</span>
 									</a>
 							</p>
-					</div>
-					
-			</div>
-			
-			<div class="navbar-menu">
-					<div class="navbar">
-
-							<div class="navbar-item" id="date_picker">
-									<datepicker v-model="date" input-class="input"></datepicker>
-							</div>
-
 					</div>
 			</div>
     </nav>
